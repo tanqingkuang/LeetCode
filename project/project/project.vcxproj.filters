@@ -21,5 +21,8 @@
     <ClCompile Include="..\..\source\4_寻找两个有序数组的中位数\testcase.c">
       <Filter>资源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\4_寻找两个有序数组的中位数\MyFunc_n+m\interface.c">
+      <Filter>资源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
