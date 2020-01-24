@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\4_寻找两个有序数组的中位数\testcase.c" />
     <ClCompile Include="..\main.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

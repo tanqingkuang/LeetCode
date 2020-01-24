@@ -1,3 +1,13 @@
+#include "stdio.h"
+#include "string.h"
+#include "math.h"
+#include "time.h"
+#include "malloc.h"
+#include "windows.h"
+#include <conio.h>
+
+#ifndef _COMMON_H_
+#define _COMMON_H_
 
 #define uint8  unsigned char
 #define int8   signed char
@@ -21,3 +31,6 @@
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #endif
 
+void set_console_color(unsigned short color_index);
+
+#endif
