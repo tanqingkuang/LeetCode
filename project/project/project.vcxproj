@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\10_正则表达式匹配\recall\interface.c" />
+    <ClCompile Include="..\..\source\10_正则表达式匹配\dictionary\interface.c" />
     <ClCompile Include="..\..\source\10_正则表达式匹配\testcase.c" />
     <ClCompile Include="..\main.c" />
   </ItemGroup>
