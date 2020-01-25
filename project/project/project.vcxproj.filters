@@ -21,5 +21,8 @@
     <ClCompile Include="..\..\source\017_电话号码的字母组合\testcase.c">
       <Filter>资源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\017_电话号码的字母组合\recall\interface.c">
+      <Filter>资源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

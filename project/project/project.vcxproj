@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\017_电话号码的字母组合\recall\interface.c" />
     <ClCompile Include="..\..\source\017_电话号码的字母组合\testcase.c" />
     <ClCompile Include="..\main.c" />
   </ItemGroup>
