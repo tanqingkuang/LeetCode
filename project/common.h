@@ -19,6 +19,18 @@
 #define uint64 unsigned long long
 #define int64  signed long
 
+#ifndef bool
+#define bool uint32
+#endif
+
+#ifndef TRUE
+#define TRUE 1
+#endif
+
+#ifndef FALSE
+#define FALSE 0
+#endif
+
 #ifndef ARRAY_SIZE
 #define ARRAY_SIZE(_X_) (sizeof((_X_)) / sizeof((_X_)[0]))
 #endif
