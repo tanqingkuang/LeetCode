@@ -1,0 +1,9 @@
+##ignore this file##
+
+*.sdf
+*.sln
+*.suo
+*.opensdf
+project/project/
+project/debug/
+project/ipch/
