@@ -23,7 +23,7 @@ void testcase1(void)
 {
 	struct ListNode arr1[] = {{1, &arr1[1]}, {4, &arr1[2]}, {5, NULL}};
 	struct ListNode arr2[] = {{1, &arr2[1]}, {3, &arr2[2]}, {4, NULL}};
-	struct ListNode arr3[] = {{2, &arr1[1]}, {6, NULL}};
+	struct ListNode arr3[] = {{2, &arr3[1]}, {6, NULL}};
 	struct ListNode *map[] = {arr1, arr2, arr3};
 	struct ListNode *rst = mergeKLists(map, ARRAY_SIZE(map));
 	int excp[] = {1, 1, 2, 3, 4, 4, 5, 6};
@@ -42,7 +42,7 @@ void testcase2(void)
 {
 	struct ListNode arr1[] = {{1, &arr1[1]}, {4, &arr1[2]}, {5, NULL}};
 	struct ListNode *arr2 = NULL;
-	struct ListNode arr3[] = {{2, &arr1[1]}, {6, NULL}};
+	struct ListNode arr3[] = {{2, &arr3[1]}, {6, NULL}};
 	struct ListNode *map[] = {arr1, arr2, arr3};
 	struct ListNode *rst = mergeKLists(map, ARRAY_SIZE(map));
 	int excp[] = {1, 2, 4, 5, 6};
