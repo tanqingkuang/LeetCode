@@ -17,7 +17,7 @@
 #define int32  signed int
 #define ulong  unsigned long
 #define uint64 unsigned long long
-#define int64  signed long
+#define int64  signed long long
 
 #ifndef bool
 #define bool uint32

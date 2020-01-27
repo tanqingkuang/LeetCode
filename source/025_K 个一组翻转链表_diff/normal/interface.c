@@ -47,7 +47,7 @@ struct ListNode* reverseKGroup(struct ListNode* head, int k)
 		struct ListNode *next_head_last = head;
 		int num = k;
 		while (num > 1) {
-			struct ListNode *end_last = getLastNode(head_last, end);
+			struct ListNode *end_last = getLastNode(head, end);
 			exchangeList(head_last, head, end, end_last, num);
 			head_last = end;
 			head = head_last->next;
