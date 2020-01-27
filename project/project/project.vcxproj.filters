@@ -18,10 +18,10 @@
     <ClCompile Include="..\main.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\023_合并K个排序链表_diff\other_mem\interface.c">
+    <ClCompile Include="..\..\source\025_K 个一组翻转链表_diff\testcase.c">
       <Filter>资源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\023_合并K个排序链表_diff\testcase.c">
+    <ClCompile Include="..\..\source\025_K 个一组翻转链表_diff\normal\interface.c">
       <Filter>资源文件</Filter>
     </ClCompile>
   </ItemGroup>

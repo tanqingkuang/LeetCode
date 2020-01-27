@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\023_合并K个排序链表_diff\other_mem\interface.c" />
-    <ClCompile Include="..\..\source\023_合并K个排序链表_diff\testcase.c" />
+    <ClCompile Include="..\..\source\025_K 个一组翻转链表_diff\normal\interface.c" />
+    <ClCompile Include="..\..\source\025_K 个一组翻转链表_diff\testcase.c" />
     <ClCompile Include="..\main.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
