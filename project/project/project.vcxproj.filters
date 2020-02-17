@@ -18,10 +18,10 @@
     <ClCompile Include="..\main.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\031_下一个排列_normal\testcase.c">
+    <ClCompile Include="..\..\source\034_在排序数组中查找元素的第一个和最后一个位置_normal\testcase.c">
       <Filter>资源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\031_下一个排列_normal\normal\interface.c">
+    <ClCompile Include="..\..\source\034_在排序数组中查找元素的第一个和最后一个位置_normal\divide\interface.c">
       <Filter>资源文件</Filter>
     </ClCompile>
   </ItemGroup>
