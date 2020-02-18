@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\034_在排序数组中查找元素的第一个和最后一个位置_normal\divide\interface.c" />
-    <ClCompile Include="..\..\source\034_在排序数组中查找元素的第一个和最后一个位置_normal\testcase.c" />
+    <ClCompile Include="..\..\source\630_课程表 III_diff\dp_1dim\interface.c" />
+    <ClCompile Include="..\..\source\630_课程表 III_diff\testcase.c" />
     <ClCompile Include="..\main.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
