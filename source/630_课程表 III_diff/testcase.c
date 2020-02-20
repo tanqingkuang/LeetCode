@@ -178,6 +178,44 @@ void testcase9(void)
 	}
 }
 
+void testcase10(void)
+{
+	int courses0[] = {645,4702};
+	int courses1[] = {635,6053};
+	int courses2[] = {295,3541};
+	int courses3[] = {612,3623};
+	int courses4[] = {646,5874};
+	int courses5[] = {202,1307};
+	int courses6[] = {272,2512};
+	int courses7[] = {765,5499};
+	int courses8[] = {239,8199};
+	int courses9[] = {516,8382};
+	int courses10[] = {61,4930};
+	int courses11[] = {670,2106};
+	int courses12[] = {153,2310};
+	int courses13[] = {782,988};
+	int courses14[] = {932,5251};
+	int courses15[] = {109,4862};
+	int courses16[] = {548,9845};
+	int courses17[] = {146,2650};
+	int courses18[] = {982,1003};
+	int *courses[] = {
+		courses0, courses1, courses2, courses3, courses4, courses5, courses6, courses7,
+		courses8, courses9, courses10, courses11, courses12, courses13, courses14,
+		courses15, courses16, courses17, courses18
+	}; 
+	int coursesColSize[] = {2, 2, 2, 2, 2};
+	int rst =  scheduleCourse(courses, ARRAY_SIZE(courses), coursesColSize);
+	int excp = 17;
+	if (excp == rst) {
+		set_console_color(10);
+		printf("%s: OK\n", __FUNCTION__);
+	} else {
+		set_console_color(12);
+		printf("%s: Err excp(%d) != rst(%d)\n", __FUNCTION__, excp, rst);
+	}
+}
+
 void testcase(void)
 {
 	testcase1();
@@ -189,4 +227,5 @@ void testcase(void)
 	testcase7();
 	testcase8();
 	testcase9();
+	testcase10();
 }

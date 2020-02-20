@@ -21,7 +21,7 @@
     <ClCompile Include="..\..\source\630_课程表 III_diff\testcase.c">
       <Filter>资源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\630_课程表 III_diff\dp_1dim\interface.c">
+    <ClCompile Include="..\..\source\630_课程表 III_diff\dp_1dim_opti\interface.c">
       <Filter>资源文件</Filter>
     </ClCompile>
   </ItemGroup>
