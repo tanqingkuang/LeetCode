@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\630_课程表 III_diff\dp_1dim_opti\interface.c" />
+    <ClCompile Include="..\..\source\630_课程表 III_diff\greedy_opti\interface.c" />
     <ClCompile Include="..\..\source\630_课程表 III_diff\testcase.c" />
     <ClCompile Include="..\main.c" />
   </ItemGroup>
