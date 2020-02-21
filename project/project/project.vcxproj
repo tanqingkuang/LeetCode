@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\037_解数独_diff\normal\interface.c" />
-    <ClCompile Include="..\..\source\037_解数独_diff\testcase.c" />
+    <ClCompile Include="..\..\source\055_跳跃游戏_normal\greedy\interface.c" />
+    <ClCompile Include="..\..\source\055_跳跃游戏_normal\testcase.c" />
     <ClCompile Include="..\main.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
