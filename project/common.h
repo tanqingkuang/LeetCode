@@ -1,5 +1,7 @@
-#include "stdio.h"
-#include "string.h"
+#define __STDC_WANT_LIB_EXT1__ 1
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "math.h"
 #include "time.h"
 #include "malloc.h"
@@ -42,6 +44,10 @@
 #ifndef MIN
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #endif
+
+#define memset_s(src, len, dest, cnt) memset(src, dest, cnt)
+#define memcpy_s(src, len, dest, cnt) memcpy(src, dest, cnt)
+#define memcmp_s(src, len, dest, cnt) memcmp(src, dest, cnt)
 
 void set_console_color(unsigned short color_index);
 
