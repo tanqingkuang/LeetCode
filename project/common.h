@@ -49,6 +49,6 @@
 #define memcpy_s(src, len, dest, cnt) memcpy(src, dest, cnt)
 #define memcmp_s(src, len, dest, cnt) memcmp(src, dest, cnt)
 
-void set_console_color(unsigned short color_index);
+void display_result(bool rst, char *func);
 
 #endif

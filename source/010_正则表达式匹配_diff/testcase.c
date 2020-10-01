@@ -4,105 +4,49 @@
 void testcase1(void)
 {
 	bool rst = isMatch("aa", "a");
-	bool excp = FALSE;
-	if (rst == excp) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err rst(%u)!=excp(%u)\n", __FUNCTION__, rst, excp);
-	}
+    display_result(rst == FALSE, __FUNCTION__);
 }
 
 void testcase2(void)
 {
 	bool rst = isMatch("aa", "a*");
-	bool excp = TRUE;
-	if (rst == excp) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err rst(%u)!=excp(%u)\n", __FUNCTION__, rst, excp);
-	}
+	display_result(rst == TRUE, __FUNCTION__);
 }
 
 void testcase3(void)
 {
 	bool rst = isMatch("ab", ".*");
-	bool excp = TRUE;
-	if (rst == excp) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err rst(%u)!=excp(%u)\n", __FUNCTION__, rst, excp);
-	}
+	display_result(rst == TRUE, __FUNCTION__);
 }
 
 void testcase4(void)
 {
 	bool rst = isMatch("aab", "c*a*b");
-	bool excp = TRUE;
-	if (rst == excp) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err rst(%u)!=excp(%u)\n", __FUNCTION__, rst, excp);
-	}
+	display_result(rst == TRUE, __FUNCTION__);
 }
 
 void testcase5(void)
 {
 	bool rst = isMatch("mississippi", "mis*is*p*.");
-	bool excp = FALSE;
-	if (rst == excp) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err rst(%u)!=excp(%u)\n", __FUNCTION__, rst, excp);
-	}
+	display_result(rst == FALSE, __FUNCTION__);
 }
 
 void testcase6(void)
 {
 	bool rst = isMatch("a", "ab*");
-	bool excp = TRUE;
-	if (rst == excp) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err rst(%u)!=excp(%u)\n", __FUNCTION__, rst, excp);
-	}
+	display_result(rst == TRUE, __FUNCTION__);
 }
 
 void testcase7(void)
 {
 	bool rst = isMatch("ab", ".*c");
-	bool excp = FALSE;
-	if (rst == excp) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err rst(%u)!=excp(%u)\n", __FUNCTION__, rst, excp);
-	}
+	display_result(rst == FALSE, __FUNCTION__);
 }
 
 void testcase8(void)
 {
 	bool rst = isMatch("a", ".*..a*");
-	bool excp = FALSE;
-	if (rst == excp) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err rst(%u)!=excp(%u)\n", __FUNCTION__, rst, excp);
-	}
+	display_result(rst == FALSE, __FUNCTION__);
 }
 
 void testcase(void)

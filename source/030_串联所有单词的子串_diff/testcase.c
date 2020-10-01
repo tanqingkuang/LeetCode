@@ -41,14 +41,7 @@ void testcase1(void)
 	int *rst = findSubstring(s, words, ARRAY_SIZE(words), &returnSize);
 	int excp[] = {0, 9};
 	bool flag = checkRst(rst, returnSize, excp, ARRAY_SIZE(excp));
-
-	if (flag == TRUE) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err\n", __FUNCTION__);
-	}
+    display_result(flag, __FUNCTION__);
 }
 
 void testcase2(void)
@@ -59,14 +52,7 @@ void testcase2(void)
 	int *rst = findSubstring(s, words, ARRAY_SIZE(words), &returnSize);
 	int excp[] = {0, 9};
 	bool flag = checkRst(rst, returnSize, excp, 0);
-
-	if (flag == TRUE) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err\n", __FUNCTION__);
-	}
+	display_result(flag, __FUNCTION__);
 }
 
 void testcase3(void)
@@ -77,14 +63,7 @@ void testcase3(void)
 	int *rst = findSubstring(s, words, ARRAY_SIZE(words), &returnSize);
 	int excp[] = {8};
 	bool flag = checkRst(rst, returnSize, excp, ARRAY_SIZE(excp));
-
-	if (flag == TRUE) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err\n", __FUNCTION__);
-	}
+    display_result(flag, __FUNCTION__);
 }
 
 void testcase4(void)
@@ -95,14 +74,7 @@ void testcase4(void)
 	int *rst = findSubstring(s, words, ARRAY_SIZE(words), &returnSize);
 	int excp[] = {0};
 	bool flag = checkRst(rst, returnSize, excp, ARRAY_SIZE(excp));
-
-	if (flag == TRUE) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err\n", __FUNCTION__);
-	}
+    display_result(flag, __FUNCTION__);
 }
 
 void testcase5(void)
@@ -113,14 +85,7 @@ void testcase5(void)
 	int *rst = findSubstring(s, words, ARRAY_SIZE(words), &returnSize);
 	int excp[] = {0, 1, 2};
 	bool flag = checkRst(rst, returnSize, excp, ARRAY_SIZE(excp));
-
-	if (flag == TRUE) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err\n", __FUNCTION__);
-	}
+    display_result(flag, __FUNCTION__);
 }
 
 void testcase6(void)
@@ -131,14 +96,7 @@ void testcase6(void)
 	int *rst = findSubstring(s, words, ARRAY_SIZE(words), &returnSize);
 	int excp[] = {373};
 	bool flag = checkRst(rst, returnSize, excp, ARRAY_SIZE(excp));
-
-	if (flag == TRUE) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err\n", __FUNCTION__);
-	}
+    display_result(flag, __FUNCTION__);
 }
 
 void testcase(void)
