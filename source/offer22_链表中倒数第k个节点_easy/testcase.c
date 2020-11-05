@@ -36,13 +36,13 @@ void testcase4(void)
 {
     struct ListNode arr[10000] = {{0}};
     StructLink(arr, ARRAY_SIZE(arr));
-	display_result(getKthFromEnd(arr, 1000) == &arr[0], __FUNCTION__);
+	display_result(getKthFromEnd(arr, 1) == &arr[9999], __FUNCTION__);
 }
 
 void testcase(void)
 {
 	testcase1();
-    //testcase2();
-    //testcase3();
-    //testcase4();
+    testcase2();
+    testcase3();
+    testcase4();
 }

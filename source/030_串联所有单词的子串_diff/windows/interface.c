@@ -2,161 +2,85 @@
 
 typedef struct NODE_ST {
 	int pos;
-	int len;
-	int idx;
 	struct NODE_ST *next;
-	struct NODE_ST *last;
 } NODE_ST;
 
-NODE_ST g_head = {0};
-int g_map[1000] = {0};
-char g_mask[1000] = {0};
+NODE_ST g_head[1000] = {0}; /* 每个单词的匹配位置,带头 */
+int g_map[1000] = {0}; /* 用于存储相关节点还剩下多少个匹配个数 */
+int g_len; /* 用于存储单词的长度 */
 
-void insertNode(NODE_ST *head, NODE_ST *node) /* 按照升序插入 */
+void insertNode(NODE_ST *head, int pos) /* 降序插入 */
 {
-	NODE_ST *p = head;
-	while (p->next != head && node->pos > p->next->pos) {
-		p = p->next;
-	}
-
-	/* 此时node要插入p之后 */
-	node->next = p->next;
-	node->last = p;
-	node->last->next = node;
-	node->next->last = node;
+    NODE_ST *p = (NODE_ST *)malloc(sizeof(NODE_ST));
+    p->pos = pos;
+    p->next = head->next;
+    head->next = p;
 }
 
-void deleteNode(NODE_ST *node)
+void destoryNode(NODE_ST *head)
 {
-	node->last->next = node->next;
-	node->next->last = node->last;
-	g_map[node->idx]--;
-	free(node);
+    while(head->next != NULL) {
+        NODE_ST *p = head->next;
+        head->next = p->next;
+        free(p);
+    }
 }
 
-void freeNode(NODE_ST *head, NODE_ST *node)
+/* 初始化环境 */
+int initNodeMap(char *s, char **words, int wordsSize)
 {
-	NODE_ST *p = node;
-	while (p->next != head) {
-		p = p->next;
-		free(p->last);
-	}
-	if (p != head) {
-		free(p);
-	}
-	memset(g_map, 0, sizeof(g_map));
+    int len = strlen(s);
+    char *p_pos = NULL;
+    int word_idx;
+    g_len = strlen(words[0]);
+    for (word_idx = 0; word_idx < wordsSize; word_idx++) { /* 计算每个节点的匹配情况 */
+        p_pos = s;
+        g_map[word_idx] = 0;
+        while (1) {
+            p_pos = strstr(p_pos, words[word_idx]);
+            if (p_pos == NULL) {
+                break;
+            }
+            g_map[word_idx]++;
+            insertNode(&g_head[word_idx], p_pos - s);
+            p_pos++;
+        }
+        if (g_map[word_idx] == 0) { /* 说明有单词没有匹配到，则提前报错结束 */
+            return FALSE;
+        }
+    }
+    return TRUE;
 }
 
-void setNodemap(NODE_ST *head, int pos, int len, int idx)
+/* 销毁环境 */
+void destoryNodeMap(int wordsSize)
 {
-	NODE_ST *node = (NODE_ST *)malloc(sizeof(NODE_ST));
-	node->pos = pos;
-	node->len = len;
-	node->idx = idx;
-	insertNode(head, node);
-	g_map[idx]++;
+    int word_idx;
+    for (word_idx = 0; word_idx < wordsSize; word_idx++) {
+        g_map[word_idx] = 0;
+        destoryNode(&g_head[word_idx]);
+    }
 }
 
-void initNodeMap(char * s, char ** words, int wordsSize)
+/* 核心查找函数 */
+void findRst(char *s, char **words, int wordsSize, int*rst, int *returnSize)
 {
-	int idx = 0;
-	char *pos = NULL;
-	int len;
-	int len_s = strlen(s);
-	memset(&g_head, 0, sizeof(g_head));
-	g_head.next = &g_head;
-	g_head.last = &g_head;
-	memset(g_map, 0, sizeof(g_map));
-	for (; idx < wordsSize; idx++) {
-		len = strlen(words[idx]);
-		pos = s;
-		while (1) {
-			pos = strstr(pos, words[idx]);
-			if (pos == NULL) {
-				break;
-			}
-			setNodemap(&g_head, pos - s, len, idx);
-			pos += 1;
-		}
-	}
+
 }
 
-int mapIsNULL(int wordsSize)
+int *findSubstring(char *s, char **words, int wordsSize, int *returnSize)
 {
-	int idx;
-	for (idx = 0; idx < wordsSize; idx++) {
-		if (g_head.next == &g_head) {
-			return TRUE;
-		}
-	}
-	return FALSE;
-}
-
-int checkMapbuild(int wordsSize)
-{
-	int idx;
-	for (idx = 0; idx < wordsSize; idx++) {
-		if (g_map[idx] == 0) {
-			return FALSE;
-		}
-	}
-	return TRUE;
-}
-
-uint32 checkAllRight(int wordsSize)
-{
-	int idx = 0;
-	for (idx; idx < wordsSize; idx++) {
-		if (g_mask[idx] == 0) {
-			return FALSE;
-		}
-	}
-	return TRUE;
-}
-
-uint32 checkNodeList(NODE_ST *head, NODE_ST *node, int pos_excp, int wordsSize)
-{
-	uint32 flag = 0;
-
-	if (checkAllRight(wordsSize) == TRUE) {
-		return TRUE;
-	}
-
-	while (pos_excp >= node->pos && node != head) {
-		if (pos_excp == node->pos && g_mask[node->idx] == 0) {
-			g_mask[node->idx] = 1;
-			flag = checkNodeList(head, node->next, pos_excp + node->len, wordsSize);
-			g_mask[node->idx] = 0;
-			if (flag == TRUE) {
-				return TRUE;
-			}
-		}
-		node = node->next;
-	}
-	return FALSE;
-}
-
-int* findSubstring(char * s, char ** words, int wordsSize, int* returnSize)
-{
+    int ret;
 	int len = strlen(s);
 	int *rst = (int *)malloc(len * sizeof(int));
 	*returnSize = 0;
 	if (len == 0 || wordsSize == 0) {
         return NULL;
     }
-	initNodeMap(s, words, wordsSize);
-	while (checkMapbuild(wordsSize) == TRUE) {
-		if (checkNodeList(&g_head, g_head.next, g_head.next->pos, wordsSize) == TRUE) {
-			rst[*returnSize] = g_head.next->pos;
-			*returnSize += 1;
-			if (*returnSize > 1) {
-				if (rst[(*returnSize) - 2] == g_head.next->pos) {
-					*returnSize -= 1;
-				}
-			}
-		}
-		deleteNode(g_head.next);
-	}
-	freeNode(&g_head, g_head.next);
+	ret = initNodeMap(s, words, wordsSize);
+    if (ret == TRUE) { /* FLASE说明有节点没有匹配到，那么一定没有答案，因此就不用了 */
+        findRst(s, words, wordsSize, rst, returnSize);
+    }
+    destoryNodeMap(wordsSize);
 	return rst;
 }
