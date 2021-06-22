@@ -7,13 +7,7 @@ void testcase1(void)
 	int returnSize = 0;
 	int *rst =  searchRange(nums, ARRAY_SIZE(nums), 8, &returnSize);
 	int excp[] = {3, 4};
-	if (memcmp(excp, rst, sizeof(excp)) == 0) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err\n", __FUNCTION__);
-	}
+    display_result(memcmp(excp, rst, sizeof(excp)) == 0, __FUNCTION__);
 }
 
 void testcase2(void)
@@ -22,13 +16,7 @@ void testcase2(void)
 	int returnSize = 0;
 	int *rst =  searchRange(nums, ARRAY_SIZE(nums), 6, &returnSize);
 	int excp[] = {-1, -1};
-	if (memcmp(excp, rst, sizeof(excp)) == 0) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err\n", __FUNCTION__);
-	}
+	display_result(memcmp(excp, rst, sizeof(excp)) == 0, __FUNCTION__);
 }
 
 void testcase3(void)
@@ -37,13 +25,7 @@ void testcase3(void)
 	int returnSize = 0;
 	int *rst =  searchRange(nums, ARRAY_SIZE(nums), 5, &returnSize);
 	int excp[] = {0, 0};
-	if (memcmp(excp, rst, sizeof(excp)) == 0) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err\n", __FUNCTION__);
-	}
+	display_result(memcmp(excp, rst, sizeof(excp)) == 0, __FUNCTION__);
 }
 
 void testcase4(void)
@@ -52,13 +34,16 @@ void testcase4(void)
 	int returnSize = 0;
 	int *rst =  searchRange(nums, ARRAY_SIZE(nums), 6, &returnSize);
 	int excp[] = {-1, -1};
-	if (memcmp(excp, rst, sizeof(excp)) == 0) {
-		set_console_color(10);
-		printf("%s: OK\n", __FUNCTION__);
-	} else {
-		set_console_color(12);
-		printf("%s: Err\n", __FUNCTION__);
-	}
+	display_result(memcmp(excp, rst, sizeof(excp)) == 0, __FUNCTION__);
+}
+
+void testcase5(void)
+{
+	int nums[] = {2, 2};
+	int returnSize = 0;
+	int *rst =  searchRange(nums, ARRAY_SIZE(nums), 1, &returnSize);
+	int excp[] = {-1, -1};
+	display_result(memcmp(excp, rst, sizeof(excp)) == 0, __FUNCTION__);
 }
 
 void testcase(void)
@@ -67,4 +52,5 @@ void testcase(void)
 	testcase2();
 	testcase3();
 	testcase4();
+    testcase5();
 }
