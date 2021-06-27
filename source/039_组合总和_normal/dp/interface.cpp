@@ -42,8 +42,10 @@ void clearList(NODE *head)
     while (head->next != NULL) {
         NODE *node = head->next;
         head->next = head->next->next;
+        free(node->data);
         free(node);
     }
+    free(head->data);
     free(head);
 }
 
@@ -89,10 +91,13 @@ void dp(int* candidates, int candidatesSize, int target)
 {
     for (int idxCand = 0; idxCand < candidatesSize; idxCand++) { /* 对数组进行遍历 */
         pushList(&g_map[candidates[idxCand]], NULL, candidates[idxCand]); /* 0节点比较特殊，不需要判断rst */
-        for (int idxMap = candidates[idxCand] + 1; idxMap <= target; idxMap++) { /* 对map进行遍历 */
+        int end = target - candidates[idxCand];
+        for (int idxMap = candidates[idxCand] + 1; idxMap <= end; idxMap++) { /* 对map进行遍历 */
             if (g_map[idxMap - candidates[idxCand]].num == 0) continue;
             pushList(&g_map[idxMap], g_map[idxMap - candidates[idxCand]].rst, candidates[idxCand]);
         }
+        if (g_map[target - candidates[idxCand]].num != 0)
+            pushList(&g_map[target], g_map[target - candidates[idxCand]].rst, candidates[idxCand]);
     }
 }
 
