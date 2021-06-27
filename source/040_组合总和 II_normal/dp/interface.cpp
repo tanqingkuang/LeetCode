@@ -1,5 +1,15 @@
 #include "../interface.h"
 
+char g_mem[200000] = {0};
+int g_bytes_num = 0;
+void *my_malloc(int byte_num)
+{
+    byte_num = ((byte_num + 7) >> 3) << 3;
+    char *p = g_mem + g_bytes_num;
+    g_bytes_num += byte_num;
+    return p;
+}
+
 int upperArray(const void *a, const void *b)
 {
     return *(const int *)a - *(const int *)b;
@@ -38,34 +48,17 @@ typedef struct {
 
 ARRAY g_map[501] = {0};
 
-void clearList(NODE *head)
-{
-    if (head == NULL) return;
-    while (head->next != NULL) {
-        NODE *node = head->next;
-        head->next = head->next->next;
-        free(node->data);
-        free(node);
-    }
-    free(head->data);
-    free(head);
-}
-
 void clearMap(int target)
 {
-    for (int idx = 0; idx <= target; idx++) {
-        if (g_map[idx].rst == NULL) continue;
-        clearList(g_map[idx].rst);
-        g_map[idx].rst = NULL;
-        g_map[idx].num = 0;
-    }
+    g_bytes_num = 0;
+    memset(g_map, 0, sizeof(g_map));
 }
 
 void pushList(ARRAY *dest, NODE *rst, int cand, int min, int min_num)
 {
     if (rst == NULL) { /* ÌØÊâ´¦Àí */
-        NODE *p = (NODE *)malloc(sizeof(NODE));
-        p->data = (int *)malloc(sizeof(int));
+        NODE *p = (NODE *)my_malloc(sizeof(NODE));
+        p->data = (int *)my_malloc(sizeof(int));
         p->data[0] = cand;
         p->word_num = 1;
         p->next = dest->rst;
@@ -89,8 +82,8 @@ void pushList(ARRAY *dest, NODE *rst, int cand, int min, int min_num)
             }
         }
 
-        NODE *p = (NODE *)malloc(sizeof(NODE));
-        p->data = (int *)malloc(sizeof(int) * (rst->word_num + 1));
+        NODE *p = (NODE *)my_malloc(sizeof(NODE));
+        p->data = (int *)my_malloc(sizeof(int) * (rst->word_num + 1));
         p->word_num = rst->word_num + 1;
         memcpy(p->data, rst->data, sizeof(int) * rst->word_num);
         p->data[rst->word_num] = cand;
@@ -102,7 +95,6 @@ void pushList(ARRAY *dest, NODE *rst, int cand, int min, int min_num)
         dest->rst = p;
         dest->num += 1;
     }
-    
 }
 
 void dp(int* candidates, int candidatesSize, int target)
@@ -132,7 +124,6 @@ int **creatRst(int target, int* returnSize, int** returnColumnSizes)
         *returnColumnSizes = NULL;
         return NULL;
     }
-    //*returnSize = g_map[target].num;
     *returnColumnSizes = (int *)malloc(sizeof(int) * g_map[target].num);
     int **rst = (int **)malloc(sizeof(int *) * g_map[target].num);
     NODE *p = g_map[target].rst;
