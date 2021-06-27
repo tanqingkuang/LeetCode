@@ -43,6 +43,6 @@ void time_test(void)
 void main(void)
 {
 	testcase();
-    time_test();
+    //time_test();
 	while(1);
 }

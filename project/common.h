@@ -51,4 +51,7 @@
 
 void display_result(bool rst, char *func);
 
+#define TEST_EQ(a, b) display_result(a==b, __FUNCTION__)
+#define TEST_NE(a, b) display_result(a!=b, __FUNCTION__)
+
 #endif
